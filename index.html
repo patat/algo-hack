@@ -114,6 +114,22 @@
     validateBraces(str);
     validateBraces(wrong);
     validateBraces(wrong1);
+
+    function primals(n) {
+      const primals = [2];
+      for (let i = 3; i <= n; i++) {
+        let isPrimal = true;
+        for (let j = Math.floor(i / 2) + 1; j > 1; j--) {
+          if (i % j === 0) {
+            isPrimal = false;
+            continue;
+          }
+        }
+        if (isPrimal) primals.push(i);
+      }
+
+      return primals;
+    }
   </script>
 </body>
 </html>
