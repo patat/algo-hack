@@ -46,13 +46,11 @@
     function insertionSort(arr) {
       if (arr.length < 2) return arr;
 
-      for (let i = arr.length - 1; i >= 0; i--) {
+      for (let i = arr.length - 2; i >= 0; i--) {
         let j = i + 1;
         let curr = arr[i];
         while (j < arr.length && curr > arr[j]) {
-          const tmp = arr[j - 1];
           arr[j - 1] = arr[j];
-          arr[j] = tmp;
           j++;
         }
         arr[j - 1] = curr;
