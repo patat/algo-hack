@@ -58,6 +58,17 @@
 
       return arr;
     }
+
+    function depthTraversal(root) {
+      console.log(root.val);
+
+      if (!root.children) return;
+
+      root.children.forEach(child => depthTraversal(child));
+    }
+
+    const tree = {val: 1, children: [{val: 2, children: [{val: 5}, {val: 6}]}, {val: 3}, {val: 4, children: [{val: 7}, {val: 8}, {val: 9}]}]};
+    depthTraversal(tree);
   </script>
 </body>
 </html>
