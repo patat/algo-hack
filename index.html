@@ -119,8 +119,8 @@
       const primals = [2];
       for (let i = 3; i <= n; i++) {
         let isPrimal = true;
-        for (let j = Math.floor(i / 2) + 1; j > 1; j--) {
-          if (i % j === 0) {
+        for (let j = 0; j < primals.length; j++) {
+          if (i % primals[j] === 0) {
             isPrimal = false;
             continue;
           }
