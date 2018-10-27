@@ -150,6 +150,48 @@
 
       return false;
     }
+
+    function printList(head) {
+      let ptr = head;
+      console.log(ptr.val);
+
+      while (ptr.next) {
+        ptr = ptr.next;
+        console.log(ptr.val);
+      }
+    }
+
+    function reverseList(head) {
+      let prev = null;
+      let curr = head;
+      let next = curr.next;
+
+      while (curr) {
+        next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+      }
+
+      return prev;
+    }
+
+    const list = {
+      val: 1,
+      next: {
+        val: 2,
+        next: {
+          val: 3,
+          next: {
+            val: 4
+          }
+        }
+      }
+    };
+
+    //printList(list);
+    const reversed = reverseList(list);
+    printList(reversed);
   </script>
 </body>
 </html>
