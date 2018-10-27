@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta viewport
   <title>Хакатон</title>
 </head>
 <body>
@@ -19,6 +18,28 @@
           }
         }
       }
+      return arr;
+    }
+
+    function choiceSort(arr) {
+      if (arr.length < 2) return arr;
+
+      for (let i = arr.length - 1; i > 0; i--) {
+        let max = -Infinity;
+        let maxIndex = -1;
+        for (let j = 0; j <= i; j++) {
+          if (arr[j] > max) {
+            max = arr[j];
+            maxIndex = j;
+          }
+        }
+
+        if (maxIndex !== i) {
+          arr[maxIndex] = arr[i];
+          arr[i] = max;          
+        }
+      }
+
       return arr;
     }
   </script>
