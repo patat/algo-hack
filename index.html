@@ -130,6 +130,26 @@
 
       return primals;
     }
+
+    function binarySearch(needle, heystack) {
+      let start = 0;
+      let end = heystack.length - 1;
+      let step = 1;
+      const maxSteps = Math.log2(heystack.length) + 1;
+      for (let step = 1; step <= maxSteps; step++) {
+        // среднее арифметическое - середина отрезка
+        const mid = Math.floor((end + start) / 2);
+        if (needle < heystack[mid]) {
+          end = mid - 1;
+        } else if (needle > heystack[mid]) {
+          start = mid + 1;
+        } else {
+          return mid;
+        }
+      }
+
+      return false;
+    }
   </script>
 </body>
 </html>
