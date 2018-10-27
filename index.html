@@ -68,7 +68,18 @@
     }
 
     const tree = {val: 1, children: [{val: 2, children: [{val: 5}, {val: 6}]}, {val: 3}, {val: 4, children: [{val: 7}, {val: 8}, {val: 9}]}]};
-    depthTraversal(tree);
+    //depthTraversal(tree);
+
+    function widthTraversal(root) {
+      const queue = [root];
+      while (queue.length) {
+        const currNode = queue.shift();
+        currNode.children && currNode.children.forEach(child => queue.push(child));
+        console.log(currNode.val);
+      }
+    }
+
+    widthTraversal(tree);
   </script>
 </body>
 </html>
