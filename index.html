@@ -79,7 +79,41 @@
       }
     }
 
-    widthTraversal(tree);
+    //widthTraversal(tree);
+
+    function matchBraces(brace1, brace2, braces) {
+      const i = braces.findIndex(el => el === brace1);
+      const j = braces.findIndex(el => el === brace2);
+
+      // we rely on ordering in braces arr
+      return Math.abs(i - j) === 1 && Math.abs(i % 2 - j % 2) === 1;
+    }
+
+    function validateBraces(str) {
+      const braces = ['[', ']', '{', '}', '(', ')'];
+      const stack = [];
+      const arr = str.split('').filter(Boolean);
+      arr.forEach(char => {
+        if (braces.includes(char)) {
+          if (matchBraces(char, stack[stack.length - 1], braces)) {
+            stack.pop();
+          } else {
+            stack.push(char);
+          }
+        }
+      });
+
+      console.log(!stack.length);
+      return !stack.length;
+    }
+
+    const str = '{121(2323)jhdff[23232]223}';
+    const wrong = '121(2323)jhdff[23232]223}';
+    const wrong1 = '{121(23[23)jhdff23232]223}';
+
+    validateBraces(str);
+    validateBraces(wrong);
+    validateBraces(wrong1);
   </script>
 </body>
 </html>
