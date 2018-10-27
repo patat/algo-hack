@@ -42,6 +42,24 @@
 
       return arr;
     }
+
+    function insertionSort(arr) {
+      if (arr.length < 2) return arr;
+
+      for (let i = arr.length - 2; i > 0; i--) {
+        let j = i + 1;
+        let curr = arr[i];
+        while (curr > arr[j] && j < arr.length) {
+          const tmp = arr[i - 1];
+          arr[i - 1] = arr[i];
+          arr[i] = tmp;
+          j++;
+        }
+        arr[j - 1] = curr;
+      }
+      
+      return arr;
+    }
   </script>
 </body>
 </html>
